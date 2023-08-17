@@ -78,3 +78,9 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+
+-- comment
+vim.keymap.set("n", "<leader>cc", "<cmd>call CommentToggle()<CR>")
+
+-- remove  

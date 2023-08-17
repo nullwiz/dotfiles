@@ -25,6 +25,7 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'MaxMEllon/vim-jsx-pretty'
   use 'jxnblk/vim-mdx-js'
+  use 'jose-elias-alvarez/null-ls.nvim'
   use { "ellisonleao/gruvbox.nvim"} 
   use {
   'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -56,6 +57,14 @@ return require('packer').startup(function(use)
    use 'nvim-tree/nvim-web-devicons'
    use 'github/copilot.vim'
    use 'mfussenegger/nvim-lint'
+   use 'terrortylor/nvim-comment'
+   use {
+     'samodostal/image.nvim',
+     requires = {
+       'nvim-lua/plenary.nvim'
+     },
+  use 'simrat39/rust-tools.nvim'
+   }
 
 end)
 

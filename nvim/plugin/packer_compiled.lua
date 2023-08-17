@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["image.nvim"] = {
+    loaded = true,
+    path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/image.nvim",
+    url = "https://github.com/samodostal/image.nvim"
+  },
   indentLine = {
     loaded = true,
     path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/indentLine",
@@ -129,10 +134,20 @@ _G.packer_plugins = {
     path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-comment"] = {
+    loaded = true,
+    path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/nvim-comment",
+    url = "https://github.com/terrortylor/nvim-comment"
   },
   ["nvim-lint"] = {
     loaded = true,
@@ -193,6 +208,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/rainbow",
     url = "https://github.com/luochen1990/rainbow"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
   },
   supertab = {
     loaded = true,

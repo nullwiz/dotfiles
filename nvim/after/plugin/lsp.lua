@@ -8,6 +8,8 @@ lsp.ensure_installed({
   'eslint',
   'pyright',
   'ruff_lsp',
+  --go
+  'gopls',
 })
 
 -- Fix Undefined global 'vim'
@@ -40,18 +42,14 @@ lsp.set_preferences({
     }
 })
 
+-- User null ls for formatting
 lsp.format_on_save({
   format_opts = {
     async = false,
-    timeout = 4500,
+    timeout_ms = 10000,
   },
   servers = {
-    ['python'] = 'ruff',
-    ['javascript'] = 'eslint',
-    ['typescript'] = 'eslint',
-    ['typescriptreact'] = 'eslint',
-    ['javascriptreact'] = 'eslint',
-    ['rust'] = 'rustfmt', 
+    ['null-ls'] = {'javascript', 'typescript', 'lua', 'python'},
   }
 })
 

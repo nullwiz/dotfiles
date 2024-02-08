@@ -259,11 +259,6 @@ _G.packer_plugins = {
     path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
     url = "https://github.com/MaxMEllon/vim-jsx-pretty"
   },
-  ["vim-mdx-js"] = {
-    loaded = true,
-    path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/vim-mdx-js",
-    url = "https://github.com/jxnblk/vim-mdx-js"
-  },
   ["vim-snippets"] = {
     loaded = true,
     path = "/home/nullwiz/.local/share/nvim/site/pack/packer/start/vim-snippets",

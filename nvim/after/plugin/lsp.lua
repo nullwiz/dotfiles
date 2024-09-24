@@ -1,14 +1,10 @@
 local lsp = require("lsp-zero")
-
 lsp.preset("recommended")
-
 lsp.ensure_installed({
   'tsserver',
   'rust_analyzer',
   'eslint',
   'ruff_lsp',
-  --go
-  'gopls',
 })
 
 -- Fix Undefined global 'vim'
@@ -41,16 +37,21 @@ lsp.set_preferences({
     }
 })
 
--- User null ls for formatting
 lsp.format_on_save({
   format_opts = {
     async = false,
-    timeout_ms = 10000,
+    timeout = 4500,
   },
   servers = {
-    ['null-ls'] = {'javascript', 'typescript', 'lua', 'python', 'json'}
+    ['javascript'] = 'eslint',
+    ['typescript'] = 'eslint',
+    ['typescriptreact'] = 'eslint',
+    ['javascriptreact'] = 'eslint',
+    ['rust'] = 'rustfmt', 
+    ['python'] = 'black .',
   }
 })
+
 
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}

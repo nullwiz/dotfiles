@@ -1,6 +1,4 @@
-local path = require('plenary.path')
-
-local function get_python_path(workspace)
+  local function get_python_path(workspace)
   -- Use activated virtualenv.
   if vim.env.VIRTUAL_ENV then
     return path.join(vim.env.VIRTUAL_ENV, "bin", "python")
@@ -12,29 +10,19 @@ local function get_python_path(workspace)
     local venv = vim.fn.trim(vim.fn.system("poetry env info -p"))
     return path.join(venv, "bin", "python")
   end
-
   -- Find in pyenv.
   if vim.env.PYENV_ROOT then
-    -- version file contains the version of the active python interpreter
+      -- version file contains the version of the active python interpreter
     local version_file = path.join(workspace, ".version")
     if path.exists(version_file) then
       local version = io.open(version_file):read()
-      io.close(version)
-      return path.join(vim.env.PYENV_ROOT, "versions", vim.fn.trim(version), "bin", "python")
+      return path.join(vim.env.PYENV_ROOT, "versions", version, "bin", "python")
     end
-  end
 
   -- Fallback to system Python.
   return vim.fn.exepath("python3") or vim.fn.exepath("python") or "python"
-end
-
-local function get_venv(workspace)
-  -- Implement logic to determine the venv path if needed
-  -- Placeholder for the example
-  return ""
-end
-
-require("mason-lspconfig").setup_handlers({
+  end
+require("mason-lspconfig").setup_handlers {
 
   function(server_name)
     require("lspconfig")[server_name].setup {}
@@ -44,8 +32,8 @@ require("mason-lspconfig").setup_handlers({
     require("lspconfig").pyright.setup {
       on_init = function(client)
         client.config.settings.python.pythonPath = get_python_path(client.config.root_dir)
-        client.config.settings.python.venvPath = path.join(vim.env.PYENV_ROOT, 'versions')
-        client.config.settings.python.venv = get_venv(client.config.root_dir)
+        client.config.settings.venvPath = path.join(vim.env.PYENV_ROOT, 'versions')
+        client.config.settings.venv = get_venv(client.config.root_dir)
       end
     }
   end,
@@ -56,9 +44,8 @@ require("mason-lspconfig").setup_handlers({
         client.server_capabilities.hoverProvider = false
       end,
       on_init = function(client)
-        client.config.settings.pythonPath = get_python_path(client.config.root_dir)
+        client.config.interpreter = get_python_path(client.config.root_dir)
       end
     }
   end,
-})
-
+}

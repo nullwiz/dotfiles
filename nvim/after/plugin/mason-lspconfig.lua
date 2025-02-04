@@ -50,8 +50,8 @@ require("mason-lspconfig").setup_handlers({
     }
   end,
 
-  ["ruff_lsp"] = function()
-    require("lspconfig")["ruff_lsp"].setup {
+  ["ruff"] = function()
+    require("lspconfig")["ruff"].setup {
       on_attach = function(client, bufnr)
         client.server_capabilities.hoverProvider = false
       end,
@@ -60,5 +60,30 @@ require("mason-lspconfig").setup_handlers({
       end
     }
   end,
+
+  ["lexical"] = function()
+    require("lspconfig")["lexical"].setup {
+      on_attach = function(client, bufnr)
+        client.server_capabilities.hoverProvider = false
+      end
+    }
+  end,
+
+
+  ["rust_analyzer"] = function()
+    require("lspconfig")["rust_analyzer"].setup {
+      on_init = function(client)
+        client.config.settings["rust-analyzer"].cargo.loadOutDirsFromCheck = true
+      end
+    }
+  end,
+
+  ["eslint"] = function()
+    require("lspconfig")["eslint"].setup {
+      on_attach = function(client, bufnr)
+        client.resolved_capabilities.document_formatting = false
+      end
+    }
+  end
 })
 

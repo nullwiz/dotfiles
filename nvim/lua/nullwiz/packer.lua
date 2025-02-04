@@ -1,10 +1,9 @@
--- plugins
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
--- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
+  use 'LunarVim/bigfile.nvim'
+  use "VPavliashvili/json-nvim"
   use 'styled-components/vim-styled-components'
   use 'mattn/emmet-vim'
   use 'ervandew/supertab'
@@ -17,6 +16,7 @@ return require('packer').startup(function(use)
   use 'mhinz/vim-startify'
   use 'sudormrfbin/cheatsheet.nvim'
   use 'nvim-lua/popup.nvim'
+  use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
   use 'nvim-telescope/telescope-fzf-native.nvim'
   use 'nvim-telescope/telescope-file-browser.nvim'
   use 'nvim-tree/nvim-tree.lua'

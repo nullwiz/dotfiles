@@ -1,10 +1,10 @@
 local lsp = require("lsp-zero")
 lsp.preset("recommended")
 lsp.ensure_installed({
-  'tsserver',
   'rust_analyzer',
   'eslint',
-  'ruff_lsp',
+  'ruff',
+  'lexical',
 })
 
 -- Fix Undefined global 'vim'
@@ -49,6 +49,7 @@ lsp.format_on_save({
     ['javascriptreact'] = 'eslint',
     ['rust'] = 'rustfmt', 
     ['python'] = 'black .',
+    ['elixir'] = 'mix format . '
   }
 })
 

@@ -38,8 +38,8 @@ require("mason-lspconfig").setup_handlers {
     }
   end,
 
-  ["ruff_lsp"] = function()
-    require("lspconfig")["ruff_lsp"].setup {
+  ["ruff"] = function()
+    require("lspconfig")["ruff"].setup {
       on_attach = function(client, bufnr)
         client.server_capabilities.hoverProvider = false
       end,
